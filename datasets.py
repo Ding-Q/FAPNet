@@ -26,6 +26,10 @@ def shadow_mask(crop_size, img, random_size):
         idx = np.random.randint(0, height-crop_size+1)
         idy = np.random.randint(0, width-crop_size+1)
         crop_img = img[idx:idx+crop_size, idy:idy+crop_size]
+	if np.mean(crop_img) == 0:
+	    j+=1
+	    contiune
+		
         # print('!!!!!!!!', crop_img.type)
         crop_blur_img = cv2.GaussianBlur(crop_img, (5, 5), 0)
         # crop_blur_img = crop_blur_img[ :, :, np.newaxis]
